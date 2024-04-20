@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Project 2</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <h1 class="heading">Counter using HTML</h1>
+            <div class="counter-box">
+                <p id="line">Your Current Count is : <span class="count" >0</span></p>
+                <div id="'line"></div>
+                <p id="error">Error : Cannot go below 0</p>
+                <div class="buttons">
+                    <button id="dec" class="btn dec">Decrement</button>
+                    <button id="inc" class="btn inc">Increment</button>
+                    <button id="clear" class="btn clear">Clear</button>
+                </div>
+            </div>
+        </div>
+    </header>
+
+   <script>
+        let button_dec = document.querySelector("#dec");
+        let button_inc = document.querySelector("#inc");
+        let button_clear = document.querySelector("#clear");
+        let count = document.querySelector(".count");
+        let error_msg = document.querySelector("#error");
+
+       let count_show = count.innerText;
+
+       function ui_Upadte(){
+            if(count_show<=0){
+                count.innerText=0;
+                button_dec.disabled=true;
+                error_msg.style.display='block';
+            }
+            else{
+                button_dec.disabled=false;
+                error_msg.style.display='none';
+
+            }
+       }
+
+       button_dec.addEventListener("click",()=>{
+        count.innerText=count_show--;
+           ui_Upadte();
+       })
+
+       button_inc.addEventListener("click",()=>{
+        count.innerText=count_show++;
+           ui_Upadte();
+       })
+       button_clear.addEventListener("click",()=>{
+        count.innerText=0;
+          
+       })
+
+   </script>
+   
+</body>
+</html>
